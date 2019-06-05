@@ -1,7 +1,4 @@
-import * as Cortex from 'cortex';
-import Powerslide from '..';
-
-const code = `import * as CodeMirror from 'codemirror';
+import * as CodeMirror from 'codemirror';
 import * as Cortex from 'cortex';
 
 import 'codemirror/mode/jsx/jsx';
@@ -27,45 +24,22 @@ export default class PowerslideCode extends Cortex.Component {
 
     public render(): Cortex.Node[] {
         return [
-            <HTMLTextAreaElement id='codemirror' textContent={ this.textContent }/>
+            <HTMLTextAreaElement id='codemirror' value={ this.textContent }/>
         ];
     }
 
     public theme(): string {
-        return \`
+        return `
             :host {
                 display: contents;
             }
 
-            \${ require('codemirror/lib/codemirror.css') }
+            ${ require('codemirror/lib/codemirror.css') }
 
-            .\${ CodeMirror.name } {
+            .${ CodeMirror.name } {
                 height: 100%;
                 width: 100%;
             }
-        \`;
-    }
-}`;
-
-class PowerslideExample extends Cortex.Component {
-
-    public render(): Cortex.Node[] {
-        return [
-            <Powerslide>
-                <Powerslide.Page>
-                    <Powerslide.Layout grow>
-                        <Powerslide.Code textContent={ code }/>
-                    </Powerslide.Layout>
-                </Powerslide.Page>
-            </Powerslide>
-        ]
-    }
-
-    public theme(): string {
-        return `
-
         `
     }
 }
-
-document.body.append(new PowerslideExample());
