@@ -1,0 +1,26 @@
+{
+  "name": "powerslide",
+  "version": "1.0.0",
+  "description": "Slideshow/Presentation Web Components",
+  "main": "index.ts",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndugger/powerslide.git"
+  },
+  "author": "Nick Dugger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ndugger/powerslide/issues"
+  },
+  "homepage": "https://github.com/ndugger/powerslide#readme",
+  "dependencies": {
+    "cortex": "github:ndugger/cortex",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.4.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
