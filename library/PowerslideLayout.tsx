@@ -1,15 +1,15 @@
 import * as Cortex from 'cortex';
 
-type PowerslideLayoutAlignment = 'start' | 'center' | 'end';
-type PowerslideLayoutDirection = 'horizontal' | 'vertical';
-type PowerslideLayoutJustification = 'start' | 'center' | 'end';
+type LayoutAlignment = 'start' | 'center' | 'end';
+type LayoutDirection = 'horizontal' | 'vertical';
+type LayoutJustification = 'start' | 'center' | 'end';
 
 export default class PowerslideLayout extends Cortex.Component {
 
-    public align: PowerslideLayoutAlignment;
-    public direction: PowerslideLayoutDirection;
+    public align: LayoutAlignment;
+    public direction: LayoutDirection;
     public grow: boolean;
-    public justify: PowerslideLayoutJustification;
+    public justify: LayoutJustification;
     public shrink: boolean;
 
     public render(): Cortex.Node[] {

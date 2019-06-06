@@ -6,7 +6,7 @@ import 'codemirror/mode/jsx/jsx';
 export default class PowerslideCode extends Cortex.Component {
 
     protected handleComponentReady(): void {
-        const textarea = this.shadowRoot.getElementById('codemirror') as HTMLTextAreaElement;
+        const textarea = this.shadowRoot.getElementById('code_mirror') as HTMLTextAreaElement;
 
         CodeMirror.fromTextArea(textarea, {
             lineNumbers: true,
@@ -24,7 +24,7 @@ export default class PowerslideCode extends Cortex.Component {
 
     public render(): Cortex.Node[] {
         return [
-            <HTMLTextAreaElement id='codemirror' value={ this.textContent }/>
+            <HTMLTextAreaElement id='code_mirror' value={ this.textContent }/>
         ];
     }
 
@@ -37,6 +37,7 @@ export default class PowerslideCode extends Cortex.Component {
             ${ require('codemirror/lib/codemirror.css') }
 
             .${ CodeMirror.name } {
+                font-family: Share Tech Mono;
                 height: 100%;
                 width: 100%;
             }

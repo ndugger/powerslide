@@ -1,46 +1,30 @@
 import * as Cortex from 'cortex';
 import Powerslide from '..';
 
-const code = `import * as CodeMirror from 'codemirror';
-import * as Cortex from 'cortex';
+const code = `import * as Cortex from 'cortex';
 
-import 'codemirror/mode/jsx/jsx';
+import PowerslideCode from './PowerslideCode';
+import PowerslideLayout from './PowerslideLayout';
+import PowerslidePage from './PowerslidePage';
 
-export default class PowerslideCode extends Cortex.Component {
+export default class Powerslide extends Cortex.Component {
 
-    protected handleComponentReady(): void {
-        const textarea = this.shadowRoot.getElementById('codemirror') as HTMLTextAreaElement;
-
-        CodeMirror.fromTextArea(textarea, {
-            lineNumbers: true,
-            mode: {
-                name: 'jsx',
-                base: {
-                    name: 'javascript',
-                    typescript: true
-                }
-            },
-            readOnly: 'nocursor',
-            showCursorWhenSelecting: false
-        });
-    }
+    public static Code = PowerslideCode;
+    public static Layout = PowerslideLayout;
+    public static Page = PowerslidePage;
 
     public render(): Cortex.Node[] {
         return [
-            <HTMLTextAreaElement id='codemirror' textContent={ this.textContent }/>
+            <HTMLSlotElement/>
         ];
     }
 
     public theme(): string {
         return \`
             :host {
-                display: contents;
-            }
-
-            \${ require('codemirror/lib/codemirror.css') }
-
-            .\${ CodeMirror.name } {
+                display: block;
                 height: 100%;
+                position: relative;
                 width: 100%;
             }
         \`;
@@ -53,7 +37,10 @@ class PowerslideExample extends Cortex.Component {
         return [
             <Powerslide>
                 <Powerslide.Page>
-                    <Powerslide.Layout grow>
+                    <Powerslide.Layout direction='vertical' grow>
+                        <Powerslide.Heading level={ 1 }>
+                            Powerslide
+                        </Powerslide.Heading>
                         <Powerslide.Code textContent={ code }/>
                     </Powerslide.Layout>
                 </Powerslide.Page>
