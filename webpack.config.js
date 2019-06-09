@@ -34,6 +34,9 @@ module.exports = {
         ]
     },
     resolve: {
+        alias: {
+            powerslide: __dirname
+        },
         extensions: [
             '.ts',
             '.tsx',

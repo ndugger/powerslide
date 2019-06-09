@@ -1,8 +1,20 @@
 import * as Cortex from 'cortex';
 
+import Powerslide from './Powerslide';
+
 export default class PowerslidePage extends Cortex.Component {
 
+    public parentNode: Powerslide;
+
     public render(): Cortex.Node[] {
+
+        if (this.parentNode.childNodes[ this.parentNode.page ] !== this) {
+            this.setAttribute('hidden', '');
+        }
+        else {
+            this.removeAttribute('hidden');
+        }
+
         return [
             <HTMLSlotElement/>
         ];
@@ -19,6 +31,10 @@ export default class PowerslidePage extends Cortex.Component {
                 position: absolute;
                 right: 0;
                 top: 0;
+            }
+
+            :host([ hidden ]) {
+                visibility: hidden;
             }
         `;
     }

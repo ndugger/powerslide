@@ -19,7 +19,6 @@ export default class PowerslideHeading extends Cortex.Component {
         return `
             .${ HTMLElement.name } {
                 color: ${ this.color || 'inherit' };
-                font-family: Oswald;
                 line-height: 1;
                 margin: 0;
                 padding: 0;
@@ -28,32 +27,32 @@ export default class PowerslideHeading extends Cortex.Component {
 
             h1.${ HTMLElement.name } {
                 font-size: 3.5rem;
-                margin-bottom: 12px;
+                margin-bottom: 24px;
             }
 
             h2.${ HTMLElement.name } {
                 font-size: 2.66rem;
-                margin-bottom: 12px;
+                margin-bottom: 24px;
             }
 
             h3.${ HTMLElement.name } {
                 font-size: 2.1rem;
-                margin-bottom: 8px;
+                margin-bottom: 16px;
             }
 
             h4.${ HTMLElement.name } {
                 font-size: 1.66rem;
-                margin-bottom: 8px;
+                margin-bottom: 16px;
             }
 
             h5.${ HTMLElement.name } {
                 font-size: 1.1rem;
-                margin-bottom: 4px;
+                margin-bottom: 8px;
             }
 
             h6.${ HTMLElement.name } {
                 font-size: 0.66rem;
-                margin-bottom: 4px;
+                margin-bottom: 8px;
             }
         `;
     }

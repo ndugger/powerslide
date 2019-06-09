@@ -1,9 +1,13 @@
+import 'codemirror/mode/jsx/jsx';
+
 import * as CodeMirror from 'codemirror';
 import * as Cortex from 'cortex';
 
-import 'codemirror/mode/jsx/jsx';
+import PowerslideCodeVar from './PowerslideCodeVar';
 
 export default class PowerslideCode extends Cortex.Component {
+
+    public static Var = PowerslideCodeVar;
 
     protected handleComponentReady(): void {
         const textarea = this.shadowRoot.getElementById('code_mirror') as HTMLTextAreaElement;
@@ -24,7 +28,7 @@ export default class PowerslideCode extends Cortex.Component {
 
     public render(): Cortex.Node[] {
         return [
-            <HTMLTextAreaElement id='code_mirror' value={ this.textContent }/>
+            <HTMLTextAreaElement hidden id='code_mirror' value={ this.textContent }/>
         ];
     }
 

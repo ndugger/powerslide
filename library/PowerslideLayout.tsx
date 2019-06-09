@@ -10,6 +10,7 @@ export default class PowerslideLayout extends Cortex.Component {
     public direction: LayoutDirection;
     public grow: boolean;
     public justify: LayoutJustification;
+    public padding: number;
     public shrink: boolean;
 
     public render(): Cortex.Node[] {
@@ -23,16 +24,20 @@ export default class PowerslideLayout extends Cortex.Component {
         const direction = this.direction === 'vertical' ? 'column' : 'row';
         const grow = this.grow ? 1 : 0;
         const justification = this.justify === 'center' ? 'center' : `flex-${ this.justify || 'start' }`;
+        const padding = `${ this.padding || 0 }px`;
         const shrink = this.shrink ? 1 : 0;
 
         return `
             :host {
                 align-items: ${ alignment };
+                box-sizing: border-box;
                 display: flex;
                 flex-direction: ${ direction };
                 flex-grow: ${ grow };
                 flex-shrink: ${ shrink };
                 justify-content: ${ justification };
+                padding: ${ padding };
+                width: 100%;
             }
         `;
     }
