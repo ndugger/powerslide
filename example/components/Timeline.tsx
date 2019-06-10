@@ -1,5 +1,7 @@
 import * as Cortex from 'cortex';
 
+import { black } from '../util/palette';
+
 import TimelineEvent from './TimelineEvent';
 
 export default class Timeline extends Cortex.Component {
@@ -54,13 +56,13 @@ export default class Timeline extends Cortex.Component {
             }
 
             #years {
-                background: black;
+                background: rgba(${ black }, 0.85);
                 height: 4px;
                 position: relative;
             }
 
             #years > .${ HTMLDivElement.name } {
-                background: black;
+                background: rgba(${ black }, 0.85);
                 height: 32px;
                 position: absolute;
                 top: -14px;

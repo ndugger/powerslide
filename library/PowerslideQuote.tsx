@@ -15,9 +15,14 @@ export default class PowerslideQuote extends Cortex.Component {
 
     public theme(): string {
         return `
+            :host {
+                font-family: serif;
+            }
+
             .${ HTMLQuoteElement.name } {
-                border-left: 6px solid rgb(0, 0, 0);
+                border-left: 6px solid rgba(0, 0, 0, 0.85);
                 display: block;
+                font-family: inherit;
                 padding-left: 20px;
             }
 
@@ -29,13 +34,14 @@ export default class PowerslideQuote extends Cortex.Component {
             .${ HTMLDivElement.name } {
                 align-items: center;
                 display: flex;
-                font-family: Oswald;
-                font-size: 1.33rem;
+                font-family: inherit;
+                font-size: 1.2rem;
+                font-weight: bold;
             }
 
             .${ HTMLDivElement.name }::before {
                 content: '';
-                border-bottom: 3px solid rgb(0, 0, 0);
+                border-bottom: 3px solid rgba(0, 0, 0, 0.85);
                 margin-right: 16px;
                 position: relative;
                 top: 2px;

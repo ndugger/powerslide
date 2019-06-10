@@ -1,10 +1,11 @@
 import * as Cortex from 'cortex';
 
-import { blue, green } from '../util/palette';
+import { black, blue, green } from '../util/palette';
 
 import Timeline from './Timeline';
 
 const MONTHS = [
+    'TBA',
     'January',
     'February',
     'March',
@@ -52,7 +53,7 @@ export default class TimelineEvent extends Cortex.Component {
             #dot {
                 background: rgb(${ blue });
                 border-radius: 50%;
-                box-shadow: inset 0 0 0 4px black;
+                box-shadow: inset 0 0 0 4px rgba(${ black }, 0.85);
                 height: 24px;
                 left: -10px;
                 margin-top: -2px;
@@ -82,7 +83,7 @@ export default class TimelineEvent extends Cortex.Component {
             }
 
             :host(:nth-of-type(even)) #content::before {
-                border-bottom: 12px solid black;
+                border-bottom: 12px solid rgba(${ black }, 0.85);
                 top: -12px;
             }
 
@@ -91,19 +92,19 @@ export default class TimelineEvent extends Cortex.Component {
             }
 
             :host(:nth-of-type(odd)) #content::before {
-                border-top: 12px solid black;
+                border-top: 12px solid rgba(${ black }, 0.85);
                 bottom: -12px;
             }
 
             #center {
-                background: black;
+                background: rgba(${ black }, 0.85);
                 color: white;
                 flex-shrink: 0;
                 padding: 12px 20px 0;
             }
 
             #when {
-                color: rgb(${ green });
+                color: rgba(${ green }, 0.85);
                 font-family: Oswald;
                 font-size: 0.8rem;
             }

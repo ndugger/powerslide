@@ -15,9 +15,9 @@ export default class CoverPage extends Cortex.Fragment {
                     Custom Elements & Shadow DOM
                 </Powerslide.Heading>
                 <Powerslide.Layout align='center' grow justify='center'>
-                    <Powerslide.Picture src='assets/web_components_logo.png' width={ 320 }/>
+                    <Powerslide.Picture src='assets/web_components_logo.png' style={ { opacity: '0.85'} } width={ 320 }/>
                 </Powerslide.Layout>
-                <Powerslide.Layout justify='end'>
+                <Powerslide.Layout basis={ 0 } justify='end'>
                     <Powerslide.Heading level={ 3 }>
                         by Nick Dugger
                     </Powerslide.Heading>

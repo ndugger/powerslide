@@ -14,10 +14,11 @@ export default class PowerslideListItem extends Cortex.Component {
         return `
             :host {
                 display: contents;
+                font-family: serif;
             }
 
             .${ HTMLLIElement.name } {
-                font-family: Abel;
+                font-family: inherit;
                 font-size: 1.8rem;
                 margin: 0 0 12px;
                 padding: 0;

@@ -13,12 +13,15 @@ export default class PowerslideCodeVar extends Cortex.Component {
     public theme(): string {
         return `
             :host {
+                rgba(255, 255, 255, 0.85)
                 display: contents;
+                font-family: monospace;
             }
 
             code {
-                background: rgba(0, 0, 0, 1);
-                color: rgba(255, 255, 255, 0.85);
+                background: rgba(0, 0, 0, 0.85);
+                color: inherit;
+                font-family: inherit;
                 font-size: 1.6rem;
                 padding: 4px 8px;
             }

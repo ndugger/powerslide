@@ -34,6 +34,12 @@ export default class Powerslide extends Cortex.Component {
         return this.state.page;
     }
 
+    private isFullscreen(): boolean {
+        return document.fullscreenElement === this
+            || document.fullscreenElement === this.parentNode
+            || document.fullscreenElement === (this.parentNode as ShadowRoot).host;
+    }
+
     private navigateBack(): void {
 
         if (this.state.page > 0) {
@@ -50,18 +56,12 @@ export default class Powerslide extends Cortex.Component {
 
     private toggleFullscreen(): void {
 
-        if (document.fullscreenElement) {
-            this.ownerDocument.exitFullscreen().then(() => this.update());
+        if (this.isFullscreen()) {
+            this.ownerDocument.exitFullscreen();
         }
         else {
-            this.requestFullscreen().then(() => this.update());
+            this.requestFullscreen();
         }
-    }
-
-    private isFullscreen(): boolean {
-        return document.fullscreenElement === this
-            || document.fullscreenElement === this.parentNode
-            || document.fullscreenElement === (this.parentNode as ShadowRoot).host;
     }
 
     protected handleKeydown(event: KeyboardEvent): void {
@@ -85,7 +85,8 @@ export default class Powerslide extends Cortex.Component {
 
     protected handleComponentConnect(): void {
         this.state.connect(this);
-        window.addEventListener('keydown', e => this.handleKeydown(e));
+        this.ownerDocument.addEventListener('keydown', e => this.handleKeydown(e));
+        this.ownerDocument.addEventListener('fullscreenchange', () => this.update());
     }
 
     protected handleComponentUpdate(): void {
@@ -121,7 +122,7 @@ export default class Powerslide extends Cortex.Component {
     public theme(): string {
         return `
             :host {
-                background-color: rgb(0, 0, 0);
+                background-color: rgb(255, 255, 255);
                 display: flex;
                 flex-direction: column;
                 height: 100%;
@@ -131,6 +132,7 @@ export default class Powerslide extends Cortex.Component {
 
             article {
                 flex-grow: 1;
+                font-family: serif;
                 overflow: hidden;
                 position: relative;
                 width: 100%;
@@ -143,7 +145,7 @@ export default class Powerslide extends Cortex.Component {
                 color: rgb(255, 255, 255);
                 cursor: default;
                 display: flex;
-                font-family: Oswald;
+                font-family: sans-serif;
                 height: 60px;
                 padding: 0 16px;
                 user-select: none;

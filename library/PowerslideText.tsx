@@ -4,7 +4,6 @@ export default class PowerslideText extends Cortex.Component {
 
     public bold: boolean;
     public color: string;
-    public display: boolean;
     public height: number;
     public size: number;
     public strike: boolean;
@@ -21,7 +20,6 @@ export default class PowerslideText extends Cortex.Component {
         return `
             .${ HTMLDivElement.name } {
                 color: ${ this.color || 'inherit' };
-                font-family: ${ this.display ? 'Oswald' : 'Abel' };
                 font-weight: ${ this.bold ? 'bold' : 'normal' };
                 font-size: ${ this.size || 1.8 }rem;
                 line-height: ${ this.height ? `${ this.height }rem` : 'unset' };
