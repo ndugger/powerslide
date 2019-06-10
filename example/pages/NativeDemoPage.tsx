@@ -14,7 +14,7 @@ const myCustomElementText = `
 
 const shadowDOMExample = `<p>${ regularParagraphText }</p>
 
-<my-custom-element>${ myCustomElementText }</my-custom-element>`;
+<${ MyCustomElement.tag }>${ myCustomElementText }</${ MyCustomElement.tag }>`;
 
 export default class NativeDemoPage extends Cortex.Fragment {
 
