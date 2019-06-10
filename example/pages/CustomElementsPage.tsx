@@ -2,7 +2,7 @@ import * as Cortex from 'cortex';
 import Powerslide from 'powerslide';
 
 const customElementExample = `class MyCustomElement extends HTMLElement {
-
+    
     connectedCallback() {
         // Invoked each time the custom element is
         // appended into a document-connected element.
@@ -19,9 +19,8 @@ const customElementExample = `class MyCustomElement extends HTMLElement {
     }
 
     attributeChangedCallback() {
-        // Invoked each time one of the custom
-        // element's attributes is added, removed,
-        // or changed.
+        // Invoked each time one of the custom element's
+        // attributes is added, removed, or changed.
     }
 }
 

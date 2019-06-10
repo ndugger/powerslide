@@ -1,22 +1,25 @@
 import * as Cortex from 'cortex';
 import Powerslide from 'powerslide';
 
-const shadowDOMExample = `const myCustomElement = new MyCustomElement();
+const shadowDOMExample = `class MyCustomElement extends HTMLElement {
 
-myCustomElement.attachShadow({ mode: 'open' });
+    constructor() {
+        super();
 
-const p = Object.assign(document.createElement('p'), {
-    textContent: 'Hello World'
-});
+        this.attachShadow({ mode: 'open' });
 
-const style = Object.assign(document.createElement('style'), {
-    textContent: 'p { color: red }'
-});
-
-myCustomElement.shadowRoot.append(p);
-myCustomElement.shadowRoot.append(style);
-
-document.body.append(myCustomElement);`;
+        this.shadowRoot.innerHTML = \`
+            <style>
+                p {
+                    color: red;
+                }
+            </style>
+            <p>
+                <slot/>
+            </p>
+        \`;
+    }
+}`;
 
 export default class ShadowDOMPage extends Cortex.Fragment {
 

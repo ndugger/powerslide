@@ -6,6 +6,7 @@ import Logo from './components/Logo';
 import CoverPage from './pages/CoverPage';
 import CustomElementsPage from './pages/CustomElementsPage';
 import IntroPage from './pages/IntroPage';
+import NativeDemoPage from './pages/NativeDemoPage';
 import ShadowDOMPage from './pages/ShadowDOMPage';
 import TimelinePage from './pages/TimelinePage';
 
@@ -16,6 +17,7 @@ const pages = [
     IntroPage,
     CustomElementsPage,
     ShadowDOMPage,
+    NativeDemoPage,
     TimelinePage
 ];
 
